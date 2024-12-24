@@ -1,141 +1,141 @@
-# Biblioteca - Library Management System
+# Sistema de Gerenciamento de Biblioteca
 
-A Django-based Library Management System with REST API support, featuring book collections, user authentication, and automated testing.
+Um sistema de gerenciamento de biblioteca baseado em Django com suporte a API REST, apresentando coleções de livros, autenticação de usuários e testes automatizados.
 
-## Features
+## Funcionalidades
 
-- **Book Management**
-  - Create, read, update, and delete books
-  - Associate books with authors and categories
-  - Search and filter books by various criteria
+- **Gerenciamento de Livros**
+  - Criar, ler, atualizar e excluir livros
+  - Associar livros a autores e categorias
+  - Pesquisar e filtrar livros por diversos critérios
 
-- **Collection Management**
-  - Users can create personal book collections
-  - Add/remove books to/from collections
-  - Collections are private to their owners
-  - Full CRUD operations for collections
+- **Gerenciamento de Coleções**
+  - Usuários podem criar coleções pessoais de livros
+  - Adicionar/remover livros das coleções
+  - Coleções são privadas para seus proprietários
+  - Operações completas de CRUD para coleções
 
-- **Authentication & Authorization**
-  - Token-based authentication
-  - Permission-based access control
-  - Secure API endpoints
-  - User-specific collection management
+- **Autenticação e Autorização**
+  - Autenticação baseada em token
+  - Controle de acesso baseado em permissões
+  - Endpoints de API seguros
+  - Gerenciamento de coleções específico por usuário
 
-- **API Endpoints**
-  - `/` - API root with endpoint navigation
-  - `/livros/` - Book management
-  - `/autores/` - Author management
-  - `/categorias/` - Category management
-  - `/colecoes/` - Collection management
-  - `/api-token-auth/` - Token authentication
+- **Endpoints da API**
+  - `/` - Raiz da API com navegação de endpoints
+  - `/livros/` - Gerenciamento de livros
+  - `/autores/` - Gerenciamento de autores
+  - `/categorias/` - Gerenciamento de categorias
+  - `/colecoes/` - Gerenciamento de coleções
+  - `/api-token-auth/` - Autenticação por token
 
-## Technology Stack
+## Tecnologias Utilizadas
 
-- Python 2.7 (Legacy support)
+- Python 2.7 (Suporte legado)
 - Django
 - Django REST Framework
-- SQLite Database
-- Token Authentication
+- Banco de dados SQLite
+- Autenticação por Token
 
-## Installation
+## Instalação
 
-1. Clone the repository:
+1. Clone o repositório:
 ```bash
 git clone https://github.com/JOAO2666/Biblioteca-.git
 cd Biblioteca
 ```
 
-2. Install dependencies:
+2. Instale as dependências:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Run migrations:
+3. Execute as migrações:
 ```bash
 python manage.py migrate
 ```
 
-4. Create a superuser (optional):
+4. Crie um superusuário (opcional):
 ```bash
 python manage.py createsuperuser
 ```
 
-5. Start the development server:
+5. Inicie o servidor de desenvolvimento:
 ```bash
 python manage.py runserver
 ```
 
-## API Usage
+## Uso da API
 
-### Authentication
+### Autenticação
 
-To use protected endpoints, obtain an authentication token:
-
-```bash
-curl -X POST http://localhost:8000/api-token-auth/ -d "username=your_username&password=your_password"
-```
-
-Use the token in subsequent requests:
+Para usar endpoints protegidos, obtenha um token de autenticação:
 
 ```bash
-curl -H "Authorization: Token your_token_here" http://localhost:8000/colecoes/
+curl -X POST http://localhost:8000/api-token-auth/ -d "username=seu_usuario&password=sua_senha"
 ```
 
-### Collections
+Use o token nas requisições subsequentes:
 
-- Create a collection:
 ```bash
-curl -X POST http://localhost:8000/colecoes/ -H "Authorization: Token your_token" -d "nome=My Collection&descricao=Description"
+curl -H "Authorization: Token seu_token_aqui" http://localhost:8000/colecoes/
 ```
 
-- List collections:
+### Coleções
+
+- Criar uma coleção:
 ```bash
-curl -H "Authorization: Token your_token" http://localhost:8000/colecoes/
+curl -X POST http://localhost:8000/colecoes/ -H "Authorization: Token seu_token" -d "nome=Minha Coleção&descricao=Descrição"
 ```
 
-## Testing
+- Listar coleções:
+```bash
+curl -H "Authorization: Token seu_token" http://localhost:8000/colecoes/
+```
 
-Run the test suite:
+## Testes
+
+Execute a suite de testes:
 
 ```bash
 python manage.py test
 ```
 
-Or with coverage:
+Ou com cobertura:
 
 ```bash
 coverage run manage.py test
 coverage report
 ```
 
-## Project Structure
+## Estrutura do Projeto
 
-- `biblioteca/` - Main project directory
-  - `core/` - Main application
-    - `models.py` - Database models
-    - `views.py` - API views
-    - `serializers.py` - REST framework serializers
-    - `urls.py` - URL routing
-    - `tests.py` - Test cases
-    - `custom_permissions.py` - Custom permission classes
+- `biblioteca/` - Diretório principal do projeto
+  - `core/` - Aplicação principal
+    - `models.py` - Modelos do banco de dados
+    - `views.py` - Views da API
+    - `serializers.py` - Serializadores do REST framework
+    - `urls.py` - Roteamento de URLs
+    - `tests.py` - Casos de teste
+    - `custom_permissions.py` - Classes de permissões personalizadas
 
-## Contributing
+## Como Contribuir
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Faça um fork do repositório
+2. Crie sua branch de feature (`git checkout -b feature/NovaFuncionalidade`)
+3. Faça commit de suas alterações (`git commit -m 'Adiciona nova funcionalidade'`)
+4. Faça push para a branch (`git push origin feature/NovaFuncionalidade`)
+5. Abra um Pull Request
 
-## License
+## Licença
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
 
-## Future Improvements
+## Melhorias Futuras
 
-- Upgrade to Python 3.x
-- Add more comprehensive test coverage
-- Implement book borrowing system
-- Add user profiles and ratings
-- Integrate with external book APIs
-- Add frontend interface
+- Atualização para Python 3.x
+- Adicionar mais cobertura de testes
+- Implementar sistema de empréstimo de livros
+- Adicionar perfis de usuário e avaliações
+- Integrar com APIs externas de livros
+- Adicionar interface frontend
